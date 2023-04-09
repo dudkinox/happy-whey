@@ -60,20 +60,28 @@ for (var i = 0; i < loopName.length; i++) {
         <td class="column-2">${loopName[i]}</td>
         <td class="column-3">฿ ${loopPrice[i]}</td>
         <td class="column-4">
-            <div class="flex-w bo5 of-hidden w-size17" onclick="sumPrice('${loopName[i]}', '${loopPrice[i]}')">
+            <div class="flex-w bo5 of-hidden w-size17" onclick="sumPrice('${
+              loopName[i]
+            }', '${loopPrice[i]}')">
                 <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                 </button>
 
-                <input id="${loopName[i]}" class="size8 m-text18 t-center num-product" type="number" name="num-product2" value="${order}">
+                <input id="${
+                  loopName[i]
+                }" class="size8 m-text18 t-center num-product" type="number" name="num-product2" value="${order}">
 
                 <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
         </td>
-        <td class="column-5" id="sum-${loopName[i]}">${sum}</td>
-        <td><button class="btn btn-danger" onclick="removeCart('${loopName[i]}', '${loopPrice[i]}')">X</button></td>
+        <td class="column-5" id="sum-${
+          loopName[i]
+        }">${sum.toLocaleString()}</td>
+        <td><button class="btn btn-danger" onclick="removeCart('${
+          loopName[i]
+        }', '${loopPrice[i]}')">X</button></td>
     </tr>`;
 
   totalBuy += order * Number(parseInt(loopPrice[i].replace(/,/g, "")));
@@ -91,11 +99,22 @@ function sumPrice(id, price) {
   const value = document.getElementById(id).value;
   const sum = value * Number(parseInt(price.replace(/,/g, "")));
   document.getElementById(`sum-${id}`).innerHTML = sum;
-  document.getElementById("total-price-buy").innerHTML = totalBuy;
-  document.getElementById("total-price-buy-final").innerHTML = totalBuy;
+  document.getElementById(`sum-${id}`).value = sum;
+  totalBuy = 0;
+  for (var i = 0; i < loopName.length; i++) {
+    let keep = document.getElementById(`sum-${loopName[i]}`).value;
+    totalBuy += Number(keep);
+  }
+
+  document.getElementById("total-price-buy").innerHTML =
+    totalBuy.toLocaleString();
+  document.getElementById("total-price-buy-final").innerHTML =
+    totalBuy.toLocaleString();
 }
-document.getElementById("total-price-buy").innerHTML = totalBuy;
-document.getElementById("total-price-buy-final").innerHTML = totalBuy;
+document.getElementById("total-price-buy").innerHTML =
+  totalBuy.toLocaleString();
+document.getElementById("total-price-buy-final").innerHTML =
+  totalBuy.toLocaleString();
 
 function payment() {
   const documentDetail = document.getElementById("detail-buy").value;

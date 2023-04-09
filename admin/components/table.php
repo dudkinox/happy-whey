@@ -17,18 +17,24 @@
 
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
                     <a href="#" class="d-block">Admin</a>
                 </div>
             </div>
-
+            <ul>
+                <li class="nav-item">
+                    <a href="logout.php" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                </li>
+            </ul>
         </div>
-
     </aside>
-
 
     <div class="content-wrapper">
         <section class="content-header">
@@ -70,11 +76,11 @@
                                         $resultOrder = $conn->query($queryOrder);
                                         while ($rows = $resultOrder->fetch_assoc()) {
                                         ?>
-                                            <tr>
-                                                <td><?php echo $rows["ID"]; ?></td>
-                                                <td><?php echo $rows["FULL_NAME"]; ?></td>
-                                                <td><?php echo $rows["DETAIL"]; ?></td>
-                                            </tr>
+                                        <tr>
+                                            <td><?php echo $rows["ID"]; ?></td>
+                                            <td><?php echo $rows["FULL_NAME"]; ?></td>
+                                            <td><?php echo $rows["DETAIL"]; ?></td>
+                                        </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
