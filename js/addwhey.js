@@ -49,6 +49,7 @@ const loopPrice = setCartPrice.filter((value, index, self) => {
 
 for (var i = 0; i < loopName.length; i++) {
   const order = setCartName.filter((value) => value === loopName[i]).length;
+  var sum = order * Number(parseInt(loopPrice[i].replace(/,/g, "")));
   document.getElementById("cart-list").innerHTML += `
     <tr class="table-row">
         <td class="column-1">
@@ -59,28 +60,20 @@ for (var i = 0; i < loopName.length; i++) {
         <td class="column-2">${loopName[i]}</td>
         <td class="column-3">฿ ${loopPrice[i]}</td>
         <td class="column-4">
-            <div class="flex-w bo5 of-hidden w-size17" onclick="sumPrice('${
-              loopName[i]
-            }', '${loopPrice[i]}')">
+            <div class="flex-w bo5 of-hidden w-size17" onclick="sumPrice('${loopName[i]}', '${loopPrice[i]}')">
                 <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                 </button>
 
-                <input id="${
-                  loopName[i]
-                }" class="size8 m-text18 t-center num-product" type="number" name="num-product2" value="${order}">
+                <input id="${loopName[i]}" class="size8 m-text18 t-center num-product" type="number" name="num-product2" value="${order}">
 
                 <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
         </td>
-        <td class="column-5" id="sum-${loopName[i]}">${
-    order * Number(parseInt(loopPrice[i].replace(/,/g, "")))
-  }</td>
-        <td><button class="btn btn-danger" onclick="removeCart('${
-          loopName[i]
-        }', '${loopPrice[i]}')">X</button></td>
+        <td class="column-5" id="sum-${loopName[i]}">${sum}</td>
+        <td><button class="btn btn-danger" onclick="removeCart('${loopName[i]}', '${loopPrice[i]}')">X</button></td>
     </tr>`;
 
   totalBuy += order * Number(parseInt(loopPrice[i].replace(/,/g, "")));
