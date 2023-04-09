@@ -108,9 +108,10 @@ function payment() {
   const documentDetail = document.getElementById("detail-buy").value;
   window.location.href =
     "?page=payment&total=" +
-    loopName +
+    JSON.stringify(loopName).replace(/"/g, "'") +
     " รวม " +
     totalBuy +
     "&detail=" +
     documentDetail;
+  window.localStorage.clear();
 }

@@ -28,9 +28,9 @@ require 'connect.php';
 			if ($conn->query($insert) === TRUE) {
 				echo "<script>alert('Order success!')</script>";
 			} else {
-				echo "<script>alert('Order fail!')</script>";
+				echo "<script>alert('Order fail! " . $detail . " " . $total . " บาท')</script>";
 			}
-			include 'components/banner.php';
+			echo '<script>window.location.href = "/";</script>';
 			break;
 		default:
 			include 'components/banner.php';
