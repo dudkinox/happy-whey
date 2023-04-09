@@ -6,12 +6,12 @@ require 'connect.php';
 <html lang="en">
 
 <head>
-	<?php include 'components/head.php'; ?>
+    <?php include 'components/head.php'; ?>
 </head>
 
 <body class="animsition">
 
-	<?php
+    <?php
 	include 'components/menu.php';
 	switch ($page) {
 		case 'cart':
@@ -23,6 +23,8 @@ require 'connect.php';
 		case 'payment':
 			$total = isset($_GET["total"]) ? $_GET["total"] : '';
 			$detail = isset($_GET["detail"]) ? $_GET["detail"] : '';
+			$total = str_replace(",", "", $total);
+			echo var_dump($total);
 			$insert = "INSERT INTO orders(FULL_NAME, DETAIL) 
 					VALUES ('" . $detail . "','" . $total . " บาท')";
 			if ($conn->query($insert) === TRUE) {
@@ -38,13 +40,13 @@ require 'connect.php';
 	}
 	?>
 
-	<div class="btn-back-to-top bg0-hov" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-		</span>
-	</div>
-	<div id="dropDownSelect1"></div>
-	<?php include 'components/script.php'; ?>
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+    <div id="dropDownSelect1"></div>
+    <?php include 'components/script.php'; ?>
 </body>
 
 </html>

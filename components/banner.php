@@ -12,7 +12,7 @@
 
                         <span class="caption2-slide1 m-text27 t-center animated visible-false m-b-30"
                             data-appear="fadeInDown">
-                            Woman Collection 2018
+                            Woman Collection 2023
                         </span>
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
@@ -33,7 +33,7 @@
 
                         <span class="caption2-slide1 m-text27 t-center animated visible-false m-b-30"
                             data-appear="rotateInUpRight">
-                            Woman Collection 2018
+                            Woman Collection 2023
                         </span>
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
@@ -54,7 +54,7 @@
 
                         <span class="caption2-slide1 m-text27 t-center animated visible-false m-b-30"
                             data-appear="lightSpeedIn">
-                            Woman Collection 2018
+                            Woman Collection 2023
                         </span>
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
