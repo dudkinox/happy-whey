@@ -107,5 +107,10 @@ document.getElementById("total-price-buy-final").innerHTML = totalBuy;
 function payment() {
   const documentDetail = document.getElementById("detail-buy").value;
   window.location.href =
-    "?page=payment&total=" + totalBuy + "&detail=" + documentDetail;
+    "?page=payment&total=" +
+    loopName +
+    " รวม " +
+    totalBuy +
+    "&detail=" +
+    documentDetail;
 }
